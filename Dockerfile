@@ -8,9 +8,6 @@ RUN apk update && apk add --no-cache mariadb mariadb-client
 ENV MYSQL_DATA_DIR=/var/lib/mysql
 ENV MYSQL_SCHEMA_DIR=/schema-data
 
-# 定義預設的 root 密碼環境變數（可被覆蓋）
-ENV MYSQL_ROOT_PASSWORD=!qaz2wsx
-
 # 建立 volume 目錄來儲存 schema data
 RUN mkdir -p $MYSQL_SCHEMA_DIR
 
