@@ -18,7 +18,7 @@ fi
 
 # 檢查是否有定義 MYSQL_ROOT_PASSWORD
 if [ -z "$MYSQL_ROOT_PASSWORD" ]; then
-    echo "錯誤：請定義環境變數 MYSQL_ROOT_PASSWORD"
+    echo "錯誤：請使用 -e MYSQL_ROOT_PASSWORD 指定 root 密碼"
     exit 1
 fi
 
