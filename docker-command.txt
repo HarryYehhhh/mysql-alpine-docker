@@ -1,0 +1,12 @@
+#create image
+docker build -t my-mysql-alpine .
+
+#create container
+docker run -d --name mysql-container \
+-v mysql-schema-data:/schema-data \
+-p 3309:3306 \
+-e MYSQL_ROOT_PASSWORD=1qaz2wsx \
+my-mysql-alpine
+
+#go into mysql
+docker exec -it mysql-container mysql -u root -p
