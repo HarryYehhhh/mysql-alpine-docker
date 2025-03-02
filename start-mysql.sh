@@ -46,6 +46,9 @@ done
 if [ ! -f "$MYSQL_DATA_DIR/.initialized" ]; then
     echo "設定 root 帳號..."
     mariadb -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}'; FLUSH PRIVILEGES;" || { echo "設定密碼失敗"; exit 1; }
+    # 匯入 database_backup.sql
+    echo "匯入 database_backup.sql..."
+    mariadb -u root -p"${MYSQL_ROOT_PASSWORD}" < /database_backup.sql || { echo "匯入 SQL 檔案失敗"; exit 1; }
     touch "$MYSQL_DATA_DIR/.initialized"
 fi
 

@@ -16,6 +16,7 @@ RUN mysql_install_db --user=root --datadir=$MYSQL_DATA_DIR
 
 # 複製啟動腳本
 COPY start-mysql.sh /start-mysql.sh
+COPY database_backup.sql /database_backup.sql
 RUN chmod +x /start-mysql.sh
 
 # 設定 volume，讓外部可以掛載
